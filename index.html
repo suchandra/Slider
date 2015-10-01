@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+
+		<meta charset="utf-8" />
+		<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+		<link rel="stylesheet" type="text/css" media="screen, projection" href="css/fd-slider.mhtml.min.css" />
+		<link rel="stylesheet" type="text/css" media="screen, projection" href="css/fd-slider-tooltip.css" />
+		<script src="js/fd-slider.js"></script>
+	</head>
+	<body>
+
+		<div id="article-wrapper">
+			<form action="" method="post">
+
+				<fieldset>
+
+					<label for="inputHorizontalSlider">Horizontal Slider</label>
+
+					<table>
+						<tr>
+							<td><div id="horizontal-gradation"></div></td>
+						</tr>
+					</table>
+					<input name="inputHorizontalSlider" id="inputHorizontalSlider" type="text" value="" />
+
+					<script>
+						fdSlider.createSlider({
+							inp : document.getElementById("inputHorizontalSlider"),
+							step : 10,
+							maxStep : 20,
+							min : 0,
+							max : 100,
+							animation : "jump",
+							vertical : false,
+							gradation : true,
+							gradationDiv : 'horizontal-gradation'
+						});
+					</script>
+
+				</fieldset>
+
+				<fieldset>
+
+					<label for="inputVerticalSlider">Vertical Slider</label>
+					<table class="vertical-slider-container">
+						<tr>
+							<td height="450px" ><div id="vertical-gradation"></div></td>
+							<td height="450px">
+							<input name="inputVerticalSlider" id="inputVerticalSlider" type="text" class="vertical-slider-input-box"/>
+							</td>
+
+						</tr>
+					</table>
+
+					<script>
+						fdSlider.createSlider({
+							inp : document.getElementById("inputVerticalSlider"),
+							animation : "tween",
+							hideInput : false,
+							vertical : true,
+							step : 10,
+							maxStep : 20,
+							min : 0,
+							max : 100,
+							gradation : true,
+							gradationDiv : 'vertical-gradation'
+						});
+					</script>
+
+				</fieldset>
+
+			</form>
+		</div>
+	</body>
+</html>

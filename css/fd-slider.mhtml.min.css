@@ -1,0 +1,1050 @@
+/*
+
+ Content-Type: multipart/related; boundary="_ANY_STRING_WILL_DO_AS_A_SEPARATOR"
+
+ --_ANY_STRING_WILL_DO_AS_A_SEPARATOR
+
+ Content-Location:handlenormal
+
+ Content-Transfer-Encoding:base64
+
+ iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAKeSURBVHjaYvz//z8DNQFAADExUBkABBDVDQQIIKobCBBALNgEGYGAYek5OQYhcW8Gdk5bBjZ2DbDEr583GH5+P8zw7uVWhmijR/+xRABAADGiiwHNYuZZdclaQkKiUEeY19aIm4FdkZ2RhYOJkfHHf4Z/J778/7ni4Yc9b1++mMgQZXAcqP8vsn6AAGLBcFnbCmUhIaESa1EeWyue/5wCLIzAYAGa9O8/AxsDA5MdDyOzoBK/+4w/v1jftK0oA2q5jexSgABC9zIbg4xSkKQQv5UQ01+2d78ZGN7+YvgHUg3CjFDMxcjE6iEnbL/vk3rkMwaGDqDQT5gBAAGEbiAXAzefA+Pv36wPvzEwPGFk+PfnPwNGOLEwMjD+ZWBiURYTcgMaOAnZQIAAQjeQB2ig6oPvvxkefWP4izc6GYEW/eeQButhYHgPEwYIIEwv//vH9OIHmE04C/0DhwYbshBAAGEmm1dPXgjIKAjzsTAysgKj4x8WY5mAAfn7HwPD1+fPXr9FkwMIIHQDfzHcuXyVQVZRi5uZkZEXaChI859/iEhhgVry+S/Dv18Pb9wA60ECAAGEbuAXhr1r9v2UUzL6p6mrKsDCxCjACjKUkYEZKAkK1H/AFPLh9///3x/devT7wMa9YD1IACCA0LPeN4bjO89937J04+PLF+4//PH337e////zMjMySAFTNogG8Z/duvb48Yal69/uWH0SrAcJAAQQSk4BJ2wGBl4gVmHQs7RjsPNzZtAwUmGQUhAGK3j24C3DjXN3GA5t2stw6fghoMgdIP6MnLABAghr1gNS3EAsBcQKUJoXKv0ZZCwQP4DSX9GzHkAAMWIrYKEuZQMndEg6Y4NHGiTMQN78ha1wAAggRmqX2AABRPXyECDAAK8q7HNsZWwXAAAAAElFTkSuQmCC==
+
+ --_ANY_STRING_WILL_DO_AS_A_SEPARATOR
+
+ Content-Location:handleglow
+
+ Content-Transfer-Encoding:base64
+
+ iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAPcSURBVHjaYvz//z8DGmBEohmR+DDwHwkzINFgABBALFgMYoKyWaBsZiQ5kOa/QPwPiP9A+f+QDQYIIBY0w5ihmBWI2aCYBSrGADUMZNAvKP4NFfsLNeM/QAAhu5AZqpkdiDmhmAvKh6kDGfYTiL8B8Xco/olkGQNAALFATYZ5DaSZ+9evX/zLn/9QW/2B0enuH2bDNwwsMiDFIgx/niiz/D0fKvB/X6Qkxy02NjYmtHD9BxBAjMBIYYQaxgHEPO/evRPufvbP8dwf9hghbg5tAy5GVnl2BiYORkbG7/8Z/p/+8v/3ibffLliz/VxaKc18UEhI6C1Q3xcg/gFyJUAAsSBFANvPnz+5Vj79onXyJ2+cqiC7jgUPI6sgCwMj0Gog/s/Aycjw35aXgU2QmdNo+/M/zEC1r5O4uc+ys7P/ggbHP4AAYkLyMtuLFy/4N3xgcGfk4NIUZv7P8vHPP8YHP/4zAPH/+xAMZP9j5Gb6z6ItxKO7/yuTD0gPNPLAZgEEEMyF4Ah5/vw5/4N/CkZy//8xP/vJyPDyN8P/fwygIEGkmn/AMAIq/v/7PwMTIzun2fPnt/nl5eVfw5IXQAAhJxvmN2/e8L4T0JBi/PGX8cVvxv/MjEwMwKD7j5x2QRnh7/9////+A5r4j1UYpAc5rQIEEHKyYfj69SsrA/8/ple//jEwMzMBDQQ5g4EROVmDXPgXhP8C1fz7A9GDBAACiAU5B/z+/fuPwNf3734JiPIKsTEysgIdCPQwI8xEUMSAc+p/Joaff/8zsH/8+AGkB5oGwd4ACCAWpOz0B+i9rxLvntx/KCAqxw4U5mMBeRsoCfU0JPYY//8Buu4jMHDFPzx/CNIDjWGwoQABxIKUH39xc3O/1bx/49gHXhG1P1JyUjyMDMyCrIwgbzOADf7HCDT8P+N7oHq2ty9eKb24eYxbWvAtNBuCzPgPEEBMUAPB+VNWVvad6p9PZxVvnzzw8+mDlw+///n75c/f/5zAsBQFpkcQ/eXPv//fXzx5w3vtxH7Zb29OgvRADQQXFgABhByGv5WVlT/du3fv7qdLl7Zyn37x6Z6MtsUZMUWZj3yifCBF/J9efxJ5df+J0pOrJ1QYvh9W0NO7C9IDLSTAYQgQQMhe/isgIPBDW1v7NTCgLzNcv/5J6NKuG8DcIwWMVB5w2mJk/ALMFc+A2e2upqbmQ6DatyA9SEXaf4AAYoQWsCjFFzBtsZ09e5bn6dOnfKDE/ufPHw6w7SwsPyQlJT9KS0t/MjY2/iIiIvILqfgC+xQggBiRSmyqFLAAAcSCVrQzICn4R04VABBgAIVgtDIhSVTgAAAAAElFTkSuQmCC==
+
+ --_ANY_STRING_WILL_DO_AS_A_SEPARATOR
+
+ Content-Location:handledisabled
+
+ Content-Transfer-Encoding:base64
+
+ iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAABGdBTUEAAK/INwWK6QAAABl0RVh0U29mdHdhcmUAQWRvYmUgSW1hZ2VSZWFkeXHJZTwAAAJSSURBVHjaYvz//z8DNQFAADExUBkABBDVDQQIIKobCBBALNgEGYHA1dVVjp2d3ZuZmdkWiDVA4n///r0BxId//vy5dffu3Y/+Y4kAgABiRBcDmsXs4eFhJSQklCcqKmoLpNm4ubmZWVhYQAb+f/Pmza87d+7s+/DhwxSgoceB+v8i6wcIIBZ0l1lYWCjz8fEVSUpK2gAN5GBjY2MCamIEGgaS/w8UYwaKuV6+fJkVqPYVUOw2sksBAgjdyyDXBAENtAZqYgd6jen79+8gcWRvMAENYVNQULD7/ft3GJDfDcQ/YZIAAYRuIBcrK6sD0ELWz58/M3758uUftnQKNBBEsQoLCzsD6anIBgIEELqBPEADVYGGMQENI5TiQaYqgPQA8XuYIEAAYXgZ6CJs3sQKoK5nQxYDCCCMZAM07AU/P78Q0KWMUK/hNAzok1fo4gABhG7gr48fP14FGqgJTHuMoKQCMhQ5HGH8P3/+/AcaeA2kB9kAgABCN/DLkydP9vHy8hoBk40KMKYZgRjFILCtv34xANPhvUePHu0F6UE2ACCA0A389uLFi3OcnJwbgexgoKEKTExMjBwcHAygIAAmk/8/fvxgAKp5CEzcGx8+fHgGpAfZAIAAYkTzDijQeIFYBZgk7KSkpJwFBQVVuLi4hMG2ffv29v3793eePXu29+3bt4eAQneA+DNywgYIIKxZD0hxA7EUNFlIQS0Bgc9A/AyIH0Dpr+hZDyCAGHEkXEZocuCCpjNY0vgFDTOQN39hKxwAAoiR2iU2QABRvTwECDAAxcXwW8Zw7FoAAAAASUVORK5CYII==
+
+ --_ANY_STRING_WILL_DO_AS_A_SEPARATOR
+
+ Content-Location:blank
+
+ Content-Transfer-Encoding:base64
+
+ R0lGODlhFAAUAIAAAP///wAAACH5BAEAAAAALAAAAAAUABQAAAIRhI+py+0Po5y02ouz3rz7rxUAOw==
+
+ --_ANY_STRING_WILL_DO_AS_A_SEPARATOR
+
+ Content-Location:vhandlenovalue
+
+ Content-Transfer-Encoding:base64
+
+ iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOkZDNENDNzVDNDY4MTExRTE5MDVCRDE0NzAyNDdDRDEzIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOkZDNENDNzVENDY4MTExRTE5MDVCRDE0NzAyNDdDRDEzIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6RkM0Q0M3NUE0NjgxMTFFMTkwNUJEMTQ3MDI0N0NEMTMiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6RkM0Q0M3NUI0NjgxMTFFMTkwNUJEMTQ3MDI0N0NEMTMiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz5lx88ZAAABh0lEQVR42qyVvUoDQRSFz0xms2GzMQSs3EIELWLlA4g2WpqAjWBpI1rY+wCxEYtUFnaCb2AjglpZBNHWaGEtBIlJzM/+xRMSQaLZRLMHLpfhwjd3z9yZFRgg/3LGYFpjTDF0DFabUZCrL9edhRgIvJnLIxLZgR7V0G4H4FiznQZzXi4/7f8AuhfTQiq1R1AOSTNOKIbK84BSuQrXnVf9NRnVMvDbh0gmNEQkRlJnUz2aYLtbqs+3BRaPkDJHh31JEWqLtPoGM6HUOUzDAm37r2QPNsnOCjBiFmI6xpHseXBMWBqJOMaVZHdZ6Fo2DFi3Q01tIErThAgJKEStO+wICWg7p2i23PCAwB1c7wzlCgKv2KhAXuomgdto2Q+o1UPpEIS2CF3hpz+j0QxhDrvQN/qZwXu1wjw+sAd9pAnrKFc/4PzxnDy/cwbFX4fPv5rd5HyeIDVhcIPRYK8lj0Br2AO7y2dJBcJ8why3TlhOLhUPRMAvwGRaZFiMZADSZtzSrvvO4lOAAQDE7oJ7xC19DAAAAABJRU5ErkJggg==
+
+ --_ANY_STRING_WILL_DO_AS_A_SEPARATOR
+
+ Content-Location:vhandleglow
+
+ Content-Transfer-Encoding:base64
+
+ iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjAyQkU5N0Q0NDY4MjExRTFBMzMyQzQ1Q0QxMTM5NTM0IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjAyQkU5N0Q1NDY4MjExRTFBMzMyQzQ1Q0QxMTM5NTM0Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MDJCRTk3RDI0NjgyMTFFMUEzMzJDNDVDRDExMzk1MzQiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MDJCRTk3RDM0NjgyMTFFMUEzMzJDNDVDRDExMzk1MzQiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz58DL/GAAAC5klEQVR42nSUO2tUQRTHZ+beu3efJsEEiYmFRAubaCkoFmKRRgMW+gEURSxsbGz0I0iqNAoiaGOpbRBSWMRHGgUfhSBBiUiy2d3s4+48/J8z9y6bTe6FwwxzZ37nfx4zUuR8XWPL33f15bYVR/vWxQ5rGEXPCtHGuGtg2omudW62GKxdmy69pXMyD7jyr7f0u2fuYEOEs6LvnOhg0oQ1ANrRVrQwErytXedIrJaezU88UKMga61cqyf3/iTmRiRlpKR3C2EiAbgHQIcgxsO6GHtOlNYb/buPf7Zm9yn80uwvvt9JXhWVipxwQqeQFg7u9J3YgrLtvuU5hY2QWX0da4A9CoZhGx195mNDPw2kmJT4a1JYOw2zPgRrGMtAymlCSjG2jNgchNw2trq6nbwxzs0p0CznTfABVgdYnXNHebTsJLE+t+SY84xDDGxqO/n6b3cN/2YChjmGJam6pvYKG1khUpjGPnKcfTRl4OpWsoxITvkK+B9QOgi3lUIJRgXJYG4ERp/6jCIgL4sZjCudhQCjpFO7dKwvAKnOYG4ExsCNrrmOKKPhcrsUqp2vIJv1FSdHNgfGQFS0ldfcMqfzZe51AHCuHD4n56MgOBJUoJDlwxTN/fqwo1G2wj38MFVQL6gAg8RKb5SHEgjl1GheUN6JlAdDFTZ0Lx6Ob2PzugY0806HYhwuwSoA1WDVFBwrwaqHQ8+m3DaA9hYm40uhkj+oEEr68EgNAQ6FmSmGktJIeadqBDq4KdVQbV2YKFyhW2YZ6kMuYkcl8LAxQMlqgdqjNMst5XnPazNdDL6eHY+uoj12qc+CIZU1hikxHpH5eTUF+9wKrIlv+56vk5VoZb4W3qLXCVnaBx0nIyiPXnEF4EBIc/94dVkd1EunDxVeTsfBEzS05iZ2PjeUAipUWXkIjUUfevvcROHhzWOVzdwWpdfnV8ecxxM1g5YaM3xz/HNGV3DwSDiXnCiH7xamip/o3H8BBgCMfcvC9J+4SgAAAABJRU5ErkJggg==
+
+ --_ANY_STRING_WILL_DO_AS_A_SEPARATOR
+
+ Content-Location:vhandlenormal
+
+ Content-Transfer-Encoding:base64
+
+ iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyBpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuMC1jMDYwIDYxLjEzNDc3NywgMjAxMC8wMi8xMi0xNzozMjowMCAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENTNSBXaW5kb3dzIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjA5NjAxNzA0NDY4MjExRTFCNzc2ODU0MTNEMTFEQTM0IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjA5NjAxNzA1NDY4MjExRTFCNzc2ODU0MTNEMTFEQTM0Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MDk2MDE3MDI0NjgyMTFFMUI3NzY4NTQxM0QxMURBMzQiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MDk2MDE3MDM0NjgyMTFFMUI3NzY4NTQxM0QxMURBMzQiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz6Ol9dAAAACpklEQVR42qyVTUwTURCA37zdbRdaKBUwhWpQ4wWNsR40MeGE9aaQePAvnkyU6EETw0HjwRMmxnjgIncTEmP05oGoxIOJB0RJL1o1wXBQQAuNC126290d5+1u6Q9d8MA0k31v8uabefPemwILkAuZfPPPon3aRtbNgYVlACYDYxIppzGvLEWVw9TzI/G3YgJBwPSHpdF2Ba6lWhSl6DBmk81GJGXMIUXmqUW2nOmskW30aSp+ZwPwUiYPn1etG4da5JHhvZFIXOZsjYCrtsM0C9kKqU7eJqmFnk+BorzKGSsRCQ7I9cBZ3R7QLOfhvf1RZWdIch0ZCGdgBu2zyJFJjtia+KGbJYFYV5i3LJXwMq+GdUwupDpC8Gj8cFzpUWUWouK5Ct5XcWtI9YONtWqlnSBir1wFi/ao0ssru5uTR2OKa5PQO4TyYbgwyomL7MAvZJ24Ge54M9/RGeJTF7ubkqc61ZroYgzgLYSqedBpusBEWBo7m1B7b+2J1IAaCQTeCx8Yez0/eLxNGby9L7qJMzSENWLzg1H5XF88pKh8i9D/KbxJglXTYdsmfPpv6clEzrC2DahKMD2rW+M3v2hMvJ9qwfUp1s2rrXXAxf5EcdF0ht7ljZnHc/qmixtBG16bhf6EMbdmpydyxe8vFos1MPQhDqs0BMTggOtPbzndtZxZsQbuftO0j1rJdfI6DHObgI1etxFgR7xh3AIo5M+JRHaXKp8ZzmqFGc1kht9VTPS+pTK0QYa67Vq+8voIk8faJ+kaXX3wo6D/Mmx3oU6pigMTAUp+b0S/05TbV7Zg2WEJxgJv80lqsG0yXE+1KjKubx39rVfqKYIsmY44zRHqUvcDgecz+ehvw+kjSJIWxUSnUbhXo+q/ABqa9MreP0vFP4n5PwEGAL7GNK4GQGOVAAAAAElFTkSuQmCC
+
+ --_ANY_STRING_WILL_DO_AS_A_SEPARATOR
+
+ Content-Location:handlenovalue
+
+ Content-Transfer-Encoding:base64
+
+ iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAjVJREFUeNrMVE1PE0EYfmZ32a1ugXVrS0FsoKWKxBps4kFNOBnjybPR/8Nv8A+Y1K+DxgMeIMYLngiBxGyQKK1NWxq3VpGW7tc4O25C024rBw5MMpnknXmfeeZ9nncIpRSnOQSc8jj7gFJYkLCBZxs69IkclHNzkJUk37A6NXTau2jsb+NJvkFDBCC9MYYlRF9sZZLJ5L3rsdFsXoU0qxAhIhByREE//aF2odg0zP3aKh4vfmX53kCGnNlyIa7r+v278ejcnSiVNYnFQOF5FDI7shQl8oX0+MJTxxJ/LBdes5R6N9PeJ4uYTt+c1MczuuBKDRswLfDT/iTBPE8E8UEqll37ffVWBVhhIWcQoAx17AqxbbHYAsoE1KHoq5NEQFwIYiahLzDAtWGACgOc2GvbKLXgDZXTp0ojGs8BWoMAJVYsUjs6oUc8rw+j3zb18i9tekYdY2KMMJd6IZ0pMHY2wzqsVg7M//jQwe52FZdnp1SRYJQVy092vGNRpOCSAxfUKhq17vqFAXaw+sropNIp71ouoUkC0UaYMZlzRLbp+q9kmjdtStulHdP+8MbgOUMALay/L7Xjlza/O4/yyC1elAURkwoH9oFQ7Xi0svP5Z/nd883mystvPGdQp3Bj/1MtgRu3s1h6OI/5fAJTMyo/UNk7hLFRx8e3BrbWv/gV9xl2Gzu09bgfAd8SsWCNBNu+/k02zWC1eluPhH2wAVMxAFa6SuMENfOf6Z7oczhz/+FfAQYATvji+0cdRCAAAAAASUVORK5CYII==
+
+ --_ANY_STRING_WILL_DO_AS_A_SEPARATOR--
+
+ */
+
+/*
+
+ Please note:
+
+ 1. The script automagically adds the classname "oldie" to IE 6, 7 & 8
+
+ 2. A combination of the .oldie class and "safe css hacks" are used to target specific IE versions. See http://mathiasbynens.be/notes/safe-css-hacks
+
+ 3. MSHTML has been used to base64 encode the various png images used for the drag handle in IE6, 7 & 8. See http://www.phpied.com/the-proper-mhtml-syntax/
+
+ 4. Non IE browsers get one "normal" base64 encoded image sprite.
+
+ 5. The drag handle is only 20px in width & height, not suitable for touch screen devices. You will have to change the image etc if targeting a touch screen.
+
+ 6. It's painless to base64 encode your own images, use an online encoder. http://www.google.com/search?q=base+64+encoder - the only problem is that IE needs each bit of the handle sprite to be encoded separately.
+
+ 7. Remember to change the URL to the CSS file within the IE specific filter statements to suit your installation.
+
+ */
+
+/*
+
+ Element: Form element associated with the slider
+
+ Notes: The styles given to the associated form element in order to hide it
+
+ */
+.vertical-slider-container {
+	position: relative;
+	padding-bottom: 40px;
+}
+.vertical-slider-input-box{
+	position: absolute;
+	bottom: 0px;
+	left: 0;
+}
+.fd-slider-vertical {
+	height: 450px;
+	margin: 0;
+}
+.tableData {
+	vertical-align: middle;
+	margin: 0;
+	font-size: 10px;
+	position: absolute;
+}
+.vertical-range tr:last-child {
+	vertical-align: top;
+}
+.vertical-range tr:last-child .tableData {
+	vertical-align: top;
+	height: 0 !important;
+}
+.vertical-range tr:first-child {
+	vertical-align: top;
+}
+.vertical-range tr:first-child .tableData {
+	vertical-align: top;
+	height: 0 !important;
+}
+.horizontal_gradation tr td:last-child {
+	text-align: right;
+}
+.horizontal_gradation tr td:first-child {
+	text-align: left;
+}
+.horizontal_gradation tr td {
+	text-align: center;
+}
+.horizontal_gradation {
+	position: relative;
+	margin-bottom: 10px;
+}
+
+.fd-form-element-hidden {
+
+	display: none;
+}
+
+/*
+
+ Element: Outer wrapper
+
+ Orientation: Horizontal
+
+ */
+
+.fd-slider {
+
+	width: 100%;
+	height: 20px;
+	margin: 0 0 10px 0;
+}
+
+/*
+
+ Element: Outer wrapper
+
+ Orientation: Vertical
+
+ Noyes: You may wish to float the vertical sliders left or display:inline-block
+
+ */
+
+.fd-slider-vertical {
+
+	width: 20px;
+	height: 100%;
+	margin: 0 10px 10px 0;
+}
+
+/*
+
+ Element: Outer wrapper
+
+ */
+
+.fd-slider, .fd-slider-vertical {
+
+	text-align: center;
+	display: block;
+	position: relative;
+	cursor: hand;
+	text-decoration: none;
+	border: 0 none;
+	-moz-user-select: none;
+	-khtml-user-select: none;
+	-webkit-touch-callout: none;
+	user-select: none;
+}
+
+/*
+
+ Element: Inner wrapper
+
+ Notes: All other DOM elements added as children to this element.
+
+ */
+
+.fd-slider-wrapper {
+
+	position: absolute;
+	width: 100%;
+	height: 100%;
+	padding: 0;
+	margin: 0;
+	top: 0;
+	left: 0;
+}
+
+/*
+
+ Element: Inner div
+
+ Notes: Used only by IE for the onfocus "Blur" effect so set to display:none for other browsers
+
+ */
+
+.fd-slider-inner {
+
+	display: none;
+}
+
+/*
+
+ Element: Inner div
+
+ Orientation: Horizontal
+
+ Notes: IE6, 7 & 8
+
+ Use the "Blur" filter to simulate the box-shadow - not brilliant but the best we can do for IE
+
+ IE 6 can't absolutely position on 4 sides so we reset the right to "auto" and use a nasty expression to calculate the width
+
+ */
+
+.oldie .fd-slider-inner {
+
+	display: none;
+	position: absolute;
+	height: 2px;
+	border: 1px solid #bbf;
+	background: #bbf;
+	top: 4px;
+	bottom: none;
+	left: 4px;
+	right: 12px;
+	z-index: 2;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	line-height: 4px;
+	_right: auto;
+	_width: expression((this.parentNode.offsetWidth - 8)  + "px" );
+
+	filter: progid:DXImageTransform.Microsoft.Blur(pixelradius=3.5);
+}
+
+/*
+
+ Element: Inner div
+
+ Orientation: Vertical
+
+ Notes: Reposition the "Blur" filter for the vertical slider for IE6, 7 & 8.
+
+ The "Blur" filter rule cascades from the rule above so no need to redeclare here, we just reposition.
+
+ */
+
+.oldie .fd-slider-vertical .fd-slider-inner {
+
+	width: 2px;
+	height: auto;
+	top: 4px;
+	bottom: 12px;
+	left: 4px;
+	right: auto;
+	_bottom: auto;
+	_height: expression((this.parentNode.offsetHeight - 8)  + "px" );
+
+}
+
+/*
+
+ Element: Inner div
+
+ Orientation: Horizontal & Vertical
+
+ Notes: Display the "blurred" inner div for IE6, 7 & 8 when the slider gains focus
+
+ */
+
+.oldie .fd-slider-focused .fd-slider-inner {
+
+	display: block;
+}
+
+/*
+
+ Element: Inner track bar
+
+ Orientation: Horizontal
+
+ */
+
+.fd-slider-bar {
+
+	position: absolute;
+	display: block;
+	z-index: 2;
+	height: 2px;
+	border: 1px solid #bbb;
+	border-bottom: 1px solid #aaa;
+	border-right: 1px solid #aaa;
+	border: 1px solid rgba(187, 187, 187, .8);
+	border-bottom: 1px solid rgba(170, 170, 170, .8);
+	border-right: 1px solid rgba(170, 170, 170, .8);
+	background: #ddd;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ececec), to(#ccc));
+	background: -moz-linear-gradient(top,#ececec,#ccc);
+	background: -o-linear-gradient(top,#ececec,#ccc);
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	line-height: 4px;
+	top: 8px;
+	right: 10px;
+	left: 10px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+}
+
+/*
+
+ Element: Inner track bar
+
+ Orientation: Vertical
+
+ Notes: For IE6 & 7 & 8.
+
+ IE6 does not recognise absolute positioning on four sides (top, right, bottom & left) so we use an expression
+
+ to dynamically calculate the track bar size. Yes, it is horrible - you don't need to remind me.
+
+ */
+
+.oldie .fd-slider-bar {
+
+	_left: 10px;
+	_right: auto;
+	_width: expression((this.parentNode.offsetWidth - 20)  + "px" );
+
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1,startColorstr='#ffececec',endColorstr='#ffcccccc');
+}
+
+/*
+
+ Element: Inner track bar
+
+ Orientation: Vertical
+
+ */
+
+.fd-slider-vertical .fd-slider-bar {
+
+	width: 2px;
+	top: 10px;
+	right: auto;
+	bottom: -6px;
+	left: 8px;
+	height: 99%;
+	background: #ddd;
+	background: -webkit-gradient(linear, left top, right top, from(#ececec), to(#ccc));
+	background: -moz-linear-gradient(left,#ececec,#ccc);
+	background: -o-linear-gradient(left,#ececec,#ccc);
+}
+
+/*
+
+ Element: Inner track bar
+
+ Orientation: Vertical
+
+ Notes: For IE6 & 7 & 8. The gradient filter colour strings in AARRGGBB format
+
+ */
+
+.oldie .fd-slider-vertical .fd-slider-bar {
+
+	_top: 10px;
+	_bottom: auto;
+	_right: auto;
+	_left: 8px;
+	_height: expression((this.parentNode.offsetHeight - 20)  + "px" );
+
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#ffececec',endColorstr='#ffcccccc');
+}
+
+/*
+
+ Element: Inner track bar
+
+ Orientation: Horizontal & Vertical
+
+ State: Focused
+
+ Notes: Drop shadow on the inner bar when focused - IE6, 7 & 8 get a "Blur" filter on an inner SPAN .fd-slider-inner instead
+
+ */
+
+.fd-slider-focused .fd-slider-bar {
+
+	-moz-box-shadow: 0 0 4px #aaf;
+	-webkit-box-shadow: 0 0 4px #aaf;
+	box-shadow: 0 0 4px #aaf;
+}
+
+/*
+
+ Element: Inner animated range bar
+
+ Orientation: Horizontal
+
+ */
+
+.fd-slider-range {
+
+	position: absolute;
+	display: block;
+	z-index: 3;
+	height: 2px;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	line-height: 2px;
+	top: 9px;
+	left: 11px;
+	-moz-border-radius: 2px;
+	-webkit-border-radius: 2px;
+	border-radius: 2px;
+	background: #4cc;
+	background: -webkit-gradient(linear, left top, right top, from(#6cc), to(#3cf));
+	background: -moz-linear-gradient(left,#6cc,#3cf);
+	background: -o-linear-gradient(left,#6cc,#3cf);
+}
+
+/*
+
+ Element: Inner range bar
+
+ Orientation: Horizontal
+
+ Notes: IE6, 7 & 8
+
+ */
+
+.oldie .fd-slider-range {
+
+	/* IE6 - is this needed? To test... */
+
+	_left: 10px;
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1,startColorstr='#ff66cccc',endColorstr='#ff33ccff');
+}
+
+/*
+
+ Element: Inner range bar
+
+ Orientation: Vertical
+
+ */
+
+.fd-slider-vertical .fd-slider-range {
+
+	height: auto;
+	width: 2px;
+	top: auto;
+	right: auto;
+	bottom: -7px;
+	left: 9px;
+	background: -webkit-gradient(linear, left top, left bottom, from(#3cf), to(#6cc));
+	background: -moz-linear-gradient(top,#3cf,#6cc);
+	background: -o-linear-gradient(top,#3cf,#6cc);
+}
+
+/*
+
+ Element: Inner range bar
+
+ Orientation: Vertical
+
+ Notes: IE6, 7 & 8
+
+ */
+
+.oldie .fd-slider-vertical .fd-slider-range {
+
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#ff66cccc',endColorstr='#ff33ccff');
+}
+
+/*
+
+ Element: Drag handle
+
+ Orientation: Horizontal
+
+ State: Default
+
+ */
+
+.fd-slider-handle {
+
+	position: absolute;
+	display: block;
+	padding: 0;
+	border: 0 none;
+	margin: 0;
+	z-index: 3;
+	top: 0;
+	left: 0;
+	width: 15px;
+	height: 20px;
+	outline: 0 none;
+	background-color: transparent;
+	background-image: url(data:image/png;base64,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);
+	background-position: 0 0;
+	cursor: W-resize;
+	line-height: 20px;
+	font-size: 10px;
+	-webkit-user-select: none;
+	-webkit-touch-callout: none;
+	-moz-user-select: none;
+	-moz-user-focus: none;
+	-moz-outline: 0 none;
+	user-select: none;
+}
+
+/*
+
+ Element: Drag handle
+
+ Orientation: Horizontal
+
+ State: Default
+
+ Notes: IE6, 7 & 8 use a nasty expression in order to not draw focus outline on drag handle.
+
+ */
+
+.oldie .fd-slider-handle {
+
+	background-image: none;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=crop,src='mhtml:./slider.css!handlenormal');
+	outline: expression(hideFocus='true');
+}
+
+/*
+
+ Element: Drag handle
+
+ Orientation: Horizontal & Vertical
+
+ State: Focused
+
+ Notes: Attempts to removes the focus outline
+
+ */
+
+.fd-slider-handle:focus {
+
+	outline: 0 none;
+	border: 0 none;
+	-moz-user-focus: normal;
+}
+
+.fd-slider-handle:focus::-moz-focus-inner {
+
+	border-color: transparent;
+}
+
+/*
+
+ Element: Drag handle
+
+ Orientation: Horizontal
+
+ State: Focused and Hovered
+
+ Notes: Using the same image for focused and hover states
+
+ */
+
+.fd-slider-focused .fd-slider-handle, .fd-slider-hover .fd-slider-handle, .fd-slider-active .fd-slider-handle {
+
+	background-position: 0 -20px;
+}
+
+/*
+
+ Element: Drag handle
+
+ Orientation: Horizontal
+
+ State: Focused and Hovered
+
+ Notes: Change the drag handle icon on hover or focus for IE 6, 7 & 8
+
+ */
+
+.oldie .fd-slider-focused .fd-slider-handle, .oldie .fd-slider-hover   .fd-slider-handle, .oldie .fd-slider-active .fd-slider-handle {
+
+	background-image: none;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=crop,src='mhtml:./slider.css!handleglow');
+}
+
+/*
+
+ Element: Drag handle
+
+ Orientation: Vertical
+
+ Notes: Change the cursor to the correct icon.
+
+ You could also set another handle image here if you want to use a
+
+ different image for the vertical sliders.
+
+ If not, remember to remove the unneeded empty rules.
+
+ */
+
+.fd-slider-vertical .fd-slider-handle {
+
+	cursor: N-resize;
+	background-image: url(data:image/png;base64,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);
+	width: 20px;
+}
+
+/*
+
+ Element: Drag handle
+
+ Orientation: Vertical
+
+ Notes: IE6, 7 & 8
+
+ */
+
+.oldie .fd-slider-vertical .fd-slider-handle {
+
+	background-image: none;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=crop,src='mhtml:./slider.css!vhandlenormal');
+}
+
+/*
+
+ Element: Drag handle
+
+ Orientation: Vertical
+
+ State: Focused and Hovered
+
+ */
+
+.fd-slider-vertical .fd-slider-focused .fd-slider-handle, .fd-slider-vertical .fd-slider-hover .fd-slider-handle, .fd-slider-vertical .fd-slider-active .fd-slider-handle {
+
+}
+
+/*
+
+ Element: Drag handle
+
+ Orientation: Vertical
+
+ State: Focused and Hovered
+
+ Notes: IE6, 7 & 8
+
+ */
+
+.oldie .fd-slider-vertical .fd-slider-focused .fd-slider-handle, .oldie .fd-slider-vertical .fd-slider-hover   .fd-slider-handle, .oldie .fd-slider-vertical .fd-slider-active  .fd-slider-handle {
+
+	background-image: none;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=crop,src='mhtml:./slider.css!vhandleglow');
+}
+
+/*
+
+ Element: Drag handle
+
+ Orientation: Vertical
+
+ State: User has not yet used the slider to set a value
+
+ State: IE6, 7 & 8
+
+ */
+
+.oldie .fd-slider-vertical .fd-slider-no-value .fd-slider-handle {
+
+	background-image: none;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=crop,src='mhtml:./slider.css!vhandlenovalue');
+}
+
+/*
+
+ Element: Drag handle
+
+ Orientation: Horizontal & Vertical
+
+ State: User has not yet used the slider to set a value
+
+ Notes: The slider is given this class whenever no value has been set by the user.
+
+ Opacity & png images won't work in IE though so the .oldie class is used to
+
+ pass a BASE64 encoded image to IE 6, 7 & 8.
+
+ */
+
+.fd-slider-no-value .fd-slider-handle {
+
+	opacity: .5;
+}
+
+/*
+
+ Element: Drag handle
+
+ Orientation: Horizontal
+
+ State: User has not yet used the slider to set a value
+
+ Notes: IE 6, 7 & 8 - uses a base64 encoded image as the opacity & png mix doesn't work
+
+ */
+
+.oldie .fd-slider-no-value .fd-slider-handle {
+
+	opacity: 1;
+	background-image: none;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=crop,src='mhtml:./slider.css!handlenovalue');
+}
+
+/*
+
+ Element: Outer Wrapper
+
+ Orientation: Horizontal & Vertical
+
+ Notes: IE 6 & 7 - prepare yourself...
+
+ We have to set the slider background to have either a solid colour or a background image in order for the :hover
+
+ events to work in IE. Without a solid background colour or background image, the mouse pointer will never display
+
+ the "hand" state when hovered over the slider.
+
+ To counter this problem, I've set the background to be a 20px x 20px transparent .gif which has been base64
+
+ encoded at the top of this file (along with the three .png images used for the drag handle state).
+
+ As it's a gif, no AlphaImageLoader filter is required.
+
+ */
+
+.oldie .fd-slider, .oldie .fd-slider-vertical {
+
+	*background: transparent url(mhtml:./slider.css!blank) repeat;
+}
+
+/*
+
+ Element: document.body
+
+ Orientation: Vertical
+
+ Notes: Class given to body to change cursor when dragging
+
+ */
+
+body.fd-slider-drag-vertical, body.fd-slider-drag-vertical * {
+
+	/*cursor:N-resize !important;
+
+	 -moz-user-select:none;
+
+	 -webkit-user-select:none;
+
+	 user-select:none; */
+
+}
+
+/*
+
+ Element: document.body
+
+ Orientation: Horizontal
+
+ Notes: Class given to body to change cursor when dragging
+
+ */
+
+body.fd-slider-drag-horizontal, body.fd-slider-drag-horizontal * {
+
+	cursor: W-resize !important;
+	-moz-user-select: none;
+	-webkit-user-select: none;
+	user-select: none;
+}
+
+/*
+
+ Element: Inner wrapper
+
+ Orientation: Horizontal & Vertical
+
+ State: disabled
+
+ Notes: Class given to slider when disabled
+
+ */
+
+.fd-slider-disabled {
+
+	opacity: .8;
+	cursor: default;
+}
+
+/*
+
+ Element: Drag handle
+
+ Orientation: Horizontal
+
+ State: disabled
+
+ Notes: Class given to slider when disabled
+
+ */
+
+.fd-slider-disabled .fd-slider-handle {
+
+	cursor: default !important;
+	background-position: 0 -40px;
+}
+
+/*
+
+ Element: Drag handle
+
+ Orientation: Horizontal
+
+ State: disabled
+
+ Notes: IE6, 7 & 8 fed a semi-transparent png image
+
+ */
+
+.oldie .fd-slider-disabled .fd-slider-handle {
+
+	opacity: 1;
+	background-image: none;
+	filter: progid:DXImageTransform.Microsoft.AlphaImageLoader(enabled=true,sizingMethod=crop,src='mhtml:./slider.css!handledisabled');
+}
+
+/*
+
+ Element: Drag handle
+
+ Orientation: Vertical
+
+ State: disabled
+
+ Notes: Only needed if a different sprite is used for the vertical slider drag handle
+
+ */
+
+.fd-slider-vertical .fd-slider-disabled .fd-slider-handle {
+
+}
+
+.oldie .fd-slider-vertical .fd-slider-disabled .fd-slider-handle {
+
+}
+
+/*
+
+ Element: Inner track bar
+
+ Orientation: Horizontal
+
+ State: disabled
+
+ */
+
+.fd-slider-disabled .fd-slider-bar {
+
+	cursor: auto !important;
+	border: 1px solid #888;
+	border-bottom: 1px solid #999;
+	border-right: 1px solid #999;
+	border: 1px solid rgba(136,136,136,.8);
+	border-bottom: 1px solid rgba(153,153,153,.8);
+	border-right: 1px solid rgba(153,153,153,.8);
+	background: #222;
+	background: -webkit-gradient(linear, left top, right top, from(#222), to(#000));
+	background: -moz-linear-gradient(left,#222,#000);
+	background: -o-linear-gradient(left,#222,#000);
+}
+
+/*
+
+ Element: Inner track bar
+
+ Orientation: Vertical
+
+ State: disabled
+
+ */
+
+.fd-slider-vertical .fd-slider-disabled .fd-slider-bar {
+
+	cursor: auto !important;
+	background: #555;
+	background: -webkit-gradient(linear, left top, right bottom, from(#000), to(#222));
+	background: -moz-linear-gradient(top,#000,#222);
+	background: -o-linear-gradient(top,#000,#222);
+}
+
+/*
+
+ Element: Inner track bar
+
+ Orientation: Horizontal
+
+ State: disabled
+
+ Notes: IE6, 7 & 8
+
+ */
+
+.oldie .fd-slider-disabled .fd-slider-bar {
+
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#ff222222',endColorstr='#ff000000');
+}
+
+/*
+
+ Element: Inner track bar
+
+ Orientation: Vertical
+
+ State: disabled
+
+ Notes: IE6, 7 & 8
+
+ */
+
+.oldie .fd-slider-vertical .fd-slider-disabled .fd-slider-bar {
+
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1,startColorstr='#ff222222',endColorstr='#ff000000');
+}
+
+/*
+
+ Element: Range bar
+
+ Orientation: Horizontal
+
+ State: disabled
+
+ */
+
+.fd-slider-disabled .fd-slider-range {
+
+	cursor: auto !important;
+	background: #555;
+	background: -webkit-gradient(linear, left top, right top, from(#666), to(#333));
+	background: -moz-linear-gradient(left,#666,#333);
+	background: -o-linear-gradient(left,#666,#333);
+}
+
+/*
+
+ Element: Range bar
+
+ Orientation: Horizontal
+
+ State: disabled
+
+ Notes: IE6, 7 & 8
+
+ */
+
+.oldie .fd-slider-disabled .fd-slider-range {
+
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0,startColorstr='#ff666666',endColorstr='#ff333333');
+}
+
+/*
+
+ Element: Range bar
+
+ Orientation: Vertical
+
+ State: disabled
+
+ */
+
+.fd-slider-vertical .fd-slider-disabled .fd-slider-range {
+
+	cursor: auto !important;
+	background: #555;
+	background: -webkit-gradient(linear, left top, right bottom, from(#666), to(#333));
+	background: -moz-linear-gradient(top,#666,#333);
+	background: -o-linear-gradient(top,#666,#333);
+}
+
+/*
+
+ Element: Range bar
+
+ Orientation: Vertical
+
+ State: disabled
+
+ Notes: IE6, 7 & 8
+
+ */
+
+.oldie .fd-slider-vertical .fd-slider-disabled .fd-slider-range {
+
+	filter: progid:DXImageTransform.Microsoft.gradient(GradientType=1,startColorstr='#ff666666',endColorstr='#ff333333');
+}
