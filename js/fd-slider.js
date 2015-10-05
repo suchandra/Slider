@@ -188,6 +188,10 @@ var fdSlider = (function() {
     		alert('Please enter valid max and min values');
     		return false;
     	}
+    	if(options.fineGradation && options.fineGradationSteps == options.step) {
+    		alert('Please enter valid fineGradationSteps!!');
+    		return false;
+    	}
     	return true;
     };
     var getAttribute = function(elem, att) {
@@ -347,6 +351,8 @@ var fdSlider = (function() {
             touchEvents = false,
             gradation   = options.gradation,
             gradationDiv   = options.gradationDiv,
+            fineGradation = options.fineGradation,
+            fineGradationSteps = options.fineGradationSteps,
             outerWrapper,
             innerWrapper,
             ieBlur,
@@ -973,7 +979,7 @@ var fdSlider = (function() {
             } else {
                 value = checkValue(val);
             }
-            handle.style[vertical ? "top" : "left"] = (scale ? percentToPixels(valueToPercent(value)) : vertical ? Math.round(((max - value) / step) * stepPx)+7 : Math.round(((value - min) / step) * stepPx)) + "px";
+            handle.style[vertical ? "top" : "left"] = (scale ? percentToPixels(valueToPercent(value)) : vertical ? Math.round(((max - value) / step) * stepPx)+7 : Math.round(((value - min) / step) * stepPx)+5) + "px";
             redrawRange();
             if(typeof updateInputValue !== false) {
                 setInputValue(clearVal ? "" : value);
@@ -1170,6 +1176,7 @@ var fdSlider = (function() {
         	var initialStep = maxRange-steps;
         	var desiredSteps = (maxRange / steps)-1;
         	var top=sliderHeight/((maxRange / steps));
+        	var longRange = fineGradationSteps;
         	
         	var tr = doc.createElement("tr");
         		var td = doc.createElement("td");
@@ -1177,7 +1184,14 @@ var fdSlider = (function() {
         		td.className = "tableData";
         		tbody.appendChild(tr);
         		tr.appendChild(td);
-        		td.innerHTML = maxRange;
+        		if(fineGradation) {
+        			td.innerHTML = '<img src="img/scale-long.png" style="width:15px"></img><div class="tableDataDigits tableData">'+maxRange+'</div>';
+        		}
+        		else {
+        			td.innerHTML = maxRange;
+        		}
+        		
+        		
         	for(var i=0; i<desiredSteps;i++) {        		
         		var tr = doc.createElement("tr");
         		var td = doc.createElement("td");
@@ -1186,10 +1200,25 @@ var fdSlider = (function() {
         		tbody.appendChild(tr);
         		tr.appendChild(td);
         		var decimalPlaces = getNumberOfDecimalPlaces(maxRange);
-        		td.innerHTML = initialStep.toFixed(decimalPlaces);
+        		if(fineGradation) {
+        			if(longRange === i+1) {
+	        			td.className = 'tableData';        			
+	        			td.innerHTML = '<img src="img/scale-long.png" style="width:15px"></img><div class="tableDataDigits tableData">'+initialStep.toFixed(decimalPlaces)+'</div>';
+	        			longRange = longRange + fineGradationSteps;
+	        		}
+	        		else{
+	        			
+	        			td.innerHTML = '-';
+	        		}
+        		}
+        		else {
+        			td.innerHTML = initialStep.toFixed(decimalPlaces);
+        		}
+        		        		
         		
         		initialStep = initialStep - step;   
-        		top = top+(sliderHeight/((maxRange / steps)));   		
+        		top = top+(sliderHeight/((maxRange / steps)));
+        				
         	}
         	var tr = doc.createElement("tr");
         		var td = doc.createElement("td");
@@ -1197,14 +1226,20 @@ var fdSlider = (function() {
         		td.className = "tableData";
         		tbody.appendChild(tr);
         		tr.appendChild(td);
-        		td.innerHTML = 0;
+        		if(fineGradation) {
+        			td.innerHTML = '<img src="img/scale-long.png" style="width:15px"></img><div class="tableDataDigits tableData">'+minRange+'</div>';
+        		}
+        		else {
+        			td.innerHTML = minRange;
+        		}
+        		
         		
         	table.appendChild(tbody);
         	$('#'+gradationDiv).append(table);
         }
         
         function drawHorizontalGradations(sliderWidth){
-        	var sliderWidth = ($('.fd-slider-wrapper').width())-15;
+        	var sliderWidth = ($('.fd-slider-wrapper').width())-10;
         	var maxRange = rMax;
         	var minRange = rMin;
         	var steps = step;
@@ -1216,25 +1251,60 @@ var fdSlider = (function() {
         	var tbody = doc.createElement("tbody");
         	var tr = doc.createElement("tr");
         	tbody.appendChild(tr);
-        	var initialStep = 10;
-        	var desiredSteps = (maxRange / steps)-1;
+        	var initialStep = minRange;
+        	var initialStepWithoutGradation = minRange + steps;
+        	if(fineGradation) {
+        		var desiredSteps = (maxRange / steps)-1;
+        	}
+        	else {
+        		var desiredSteps = (maxRange / steps);
+        	}
+        	
         	var left=sliderWidth/((maxRange / steps));
+        	var longRange = fineGradationSteps;
         	
         	var td = doc.createElement("td");
         		td.style.left = (0) + "px";
         		td.className = "tableData";
         		tr.appendChild(td);
-        		td.innerHTML = minRange;
+        		if(fineGradation) {
+        			td.innerHTML = '<img src="img/scale-long.png" class="horozontal-scale"></img><div class="tableDataDigits tableData">'+minRange+'</div>';
+        		}
+        		else {
+        			td.innerHTML = minRange;
+        		}
+        		
         		
         		
         	for(var i=0; i<desiredSteps;i++) {
         		var td = doc.createElement("td");
-        		td.style.left = left + "px";
+        		
         		td.className = "tableData";        		
         		tr.appendChild(td);
-        		td.innerHTML = initialStep;
         		
-        		initialStep = initialStep + step;   
+        		if(fineGradation) {
+        			if(longRange === i+1) {
+        				td.style.left = left + "px";
+	        			td.className = 'tableData';        			
+	        			td.innerHTML = '<img src="img/scale-long.png" class="horozontal-scale"></img><div class="tableDataDigits tableData">'+longRange+'</div>';
+	        			console.log(initialStep+"longRange"+longRange);
+	        			longRange = longRange + fineGradationSteps;
+	        			
+	        		}
+	        		else{
+	        			td.style.left = left+6 + "px";
+	        			td.className = 'tableData horizontal_gradations';
+	        			td.innerHTML = '-';
+	        			
+	        		}
+        		}
+        		else {
+        			td.style.left = left + "px";
+        			td.innerHTML = initialStepWithoutGradation;
+        		}
+        		initialStepWithoutGradation = initialStepWithoutGradation + step;
+        		initialStep = i;  
+        		console.log('...'+initialStep); 
         		left = left+(sliderWidth/((maxRange / steps)));      		
         	}
         	
@@ -1242,11 +1312,15 @@ var fdSlider = (function() {
         		td.style.left = (sliderWidth) + "px";
         		td.className = "tableData";
         		tr.appendChild(td);
-        		td.innerHTML = minRange;
-        		
-        		
+        		td.innerHTML = minRange;        		
         		tr.appendChild(td);
-        		td.innerHTML = maxRange;
+        		if(fineGradation) {
+        			td.innerHTML = '<img src="img/scale-long.png" class="horozontal-scale"></img><div class="tableDataDigits tableData">'+maxRange+'</div>';
+        		}
+        		else {
+        			td.innerHTML = maxRange;
+        		}
+        		
         		
         	table.appendChild(tbody);
         	$('#'+gradationDiv).append(table);

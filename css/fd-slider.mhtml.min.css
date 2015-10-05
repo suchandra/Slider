@@ -97,9 +97,24 @@
  Notes: The styles given to the associated form element in order to hide it
 
  */
+#horizontal-gradation{
+	margin-top:15px;
+}
+.horozontal-scale{
+	width: 15px;
+    transform: rotate(90deg);
+}
+.horizontal_gradations{
+	transform: rotate(90deg);
+}
+.horizontal_gradation .tableDataDigits {
+	top: -11px;
+    left: 4px;
+}
 .vertical-slider-container {
 	position: relative;
 	padding-bottom: 40px;
+	padding-left:20px;
 }
 .vertical-slider-input-box{
 	position: absolute;
@@ -115,6 +130,13 @@
 	margin: 0;
 	font-size: 10px;
 	position: absolute;
+}
+.tableDataDigits{
+    left: -18px;
+    top:3px;
+}
+.tableDataScale{
+	background: url('../img/scale-long.png') center no-repeat;
 }
 .vertical-range tr:last-child {
 	vertical-align: top;
@@ -178,7 +200,7 @@
 
 	width: 20px;
 	height: 100%;
-	margin: 0 10px 10px 0;
+	margin: 0 0px 10px 0;
 }
 
 /*
@@ -318,7 +340,7 @@
  */
 
 .fd-slider-bar {
-
+	width:99%;
 	position: absolute;
 	display: block;
 	z-index: 2;

@@ -27,14 +27,16 @@
 					<script>
 						fdSlider.createSlider({
 							inp : document.getElementById("inputHorizontalSlider"),
-							step : 10,
+							step : 1,
 							maxStep : 20,
 							min : 0,
 							max : 100,
 							animation : "jump",
 							vertical : false,
 							gradation : true,
-							gradationDiv : 'horizontal-gradation'
+							gradationDiv : 'horizontal-gradation',
+							fineGradation:true,
+							fineGradationSteps:5
 						});
 					</script>
 
@@ -59,12 +61,14 @@
 							animation : "tween",
 							hideInput : false,
 							vertical : true,
-							step : 10,
+							step : 1,
 							maxStep : 20,
 							min : 0,
 							max : 100,
 							gradation : true,
-							gradationDiv : 'vertical-gradation'
+							gradationDiv : 'vertical-gradation',
+							fineGradation:true,
+							fineGradationSteps:10
 						});
 					</script>
 
