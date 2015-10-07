@@ -954,9 +954,10 @@ var fdSlider = (function() {
         function pixelsToValue(px) {
         	
             var val = getValidValue(scale ? percentToValue(pixelsToPercent(px)) : vertical ? max - (Math.round(px / stepPx) * step) : min + (Math.round(px / stepPx) * step));
-			
-			if(val < 50 && vertical) {
-				handle.style[vertical ? "top" : "left"] = (px+12 || 0) + "px";
+			if(val ==0 && vertical) {
+				handle.style[vertical ? "top" : "left"] = (px+15 || 0) + "px";
+			} else if(val < 50 && vertical) {
+				handle.style[vertical ? "top" : "left"] = (px+11 || 0) + "px";
 			}
             else if(val >= 50 && vertical) {
             	handle.style[vertical ? "top" : "left"] = (px+7 || 0) + "px";
