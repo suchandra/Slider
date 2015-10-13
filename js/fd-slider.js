@@ -952,6 +952,7 @@ var fdSlider = (function() {
 
         // Calculates value according to pixel position of slider handle
         function pixelsToValue(px) {
+        	var documentWidth = $( document ).width();
         	
             var val = getValidValue(scale ? percentToValue(pixelsToPercent(px)) : vertical ? max - (Math.round(px / stepPx) * step) : min + (Math.round(px / stepPx) * step));
 			if(val ==0 && vertical) {
@@ -959,15 +960,17 @@ var fdSlider = (function() {
 			} else if(val < 50 && vertical) {
 				handle.style[vertical ? "top" : "left"] = (px+11 || 0) + "px";
 			}
-            else if(val >= 50 && vertical) {
+            else if(val >= 50 && vertical) {            	
+            	handle.style[vertical ? "top" : "left"] = (px+7 || 0) + "px";            	
+            }            
+            else if(documentWidth < 2560 && !vertical) {
             	handle.style[vertical ? "top" : "left"] = (px+7 || 0) + "px";
             }
-            else if(val >= 50 && !vertical) {
+            else
+            handle.style[vertical ? "top" : "left"] = (px || 0) + "px";
+            /*else if(val < 50 && !vertical) {
             	handle.style[vertical ? "top" : "left"] = (px-2 || 0) + "px";
-            }
-            else if(val < 50 && !vertical) {
-            	handle.style[vertical ? "top" : "left"] = (px || 0) + "px";
-            }
+            }*/
             redrawRange();
             $(".fd-slider-handle").mousedown();
             setInputValue((tagName == "select" || step == 1) ? Math.round(val) : val);
@@ -987,7 +990,14 @@ var fdSlider = (function() {
             } else {
                 value = checkValue(val);
             }
-            handle.style[vertical ? "top" : "left"] = (scale ? percentToPixels(valueToPercent(value)) : vertical ? Math.round(((max - value) / step) * stepPx)+7 : Math.round(((value - min) / step) * stepPx)) + "px";
+            var documentWidth = $( document ).width();
+            if(documentWidth < 2560) {
+            	handle.style[vertical ? "top" : "left"] = (scale ? percentToPixels(valueToPercent(value)) : vertical ? Math.round(((max - value) / step) * stepPx)+5 : Math.round(((value - min) / step) * stepPx))+6 + "px";
+            }
+            else {
+            	handle.style[vertical ? "top" : "left"] = (scale ? percentToPixels(valueToPercent(value)) : vertical ? Math.round(((max - value) / step) * stepPx)+16 : Math.round(((value - min) / step) * stepPx)) + "px";
+            }
+            
             redrawRange();
             if(typeof updateInputValue !== false) {
                 setInputValue(clearVal ? "" : value);
@@ -1238,7 +1248,10 @@ var fdSlider = (function() {
         }
         
         function drawHorizontalGradations(sliderWidth){
-        	var sliderWidth = ($('.fd-slider-wrapper').width())-12;
+        	var documentWidth = $( document ).width();
+        	var sliderWidth = ($('.fd-slider-wrapper').width());
+        	if(documentWidth < 2560)
+        		sliderWidth = sliderWidth-18;
         	var maxRange = rMax;
         	var minRange = rMin;
         	var steps = step;

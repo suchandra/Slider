@@ -7,6 +7,7 @@
 		<link rel="stylesheet" type="text/css" media="screen, projection" href="css/fd-slider.mhtml.min.css" />
 		<link rel="stylesheet" type="text/css" media="screen, projection" href="css/fd-slider-tooltip.css" />
 		<script src="js/fd-slider.js"></script>
+		<script src="js/jquery.min.js"></script>
 	</head>
 	<body>
 
@@ -27,7 +28,7 @@
 					<script>
 						fdSlider.createSlider({
 							inp : document.getElementById("inputHorizontalSlider"),
-							step : 10,
+							step : 1,
 							maxStep : 20,
 							min : 0,
 							max : 100,
@@ -35,7 +36,7 @@
 							vertical : false,
 							gradation : true,
 							gradationDiv : 'horizontal-gradation',
-							fineGradation:false,
+							fineGradation:true,
 							fineGradationSteps:5
 						});
 					</script>
