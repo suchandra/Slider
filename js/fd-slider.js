@@ -285,8 +285,10 @@ var fdSlider = (function() {
         for(var slider in sliders) {
             if(sliders.hasOwnProperty(slider)) {
                 sliders[slider].onResize();
+                sliders[slider].drawGradations();
             }
         }
+        
     };
     var rescanAttributes = function() {
         for(var slider in sliders) {
@@ -513,6 +515,7 @@ var fdSlider = (function() {
                 sliderH = sH;
 
                 valueToPixels(forceValue ? getWorkingValueFromInput() : (tagName == "select" ? inp.selectedIndex : parseFloat(inp.value)), false);
+                drawGradations();
 
             } catch(err) {}
             callback("redraw");
@@ -952,22 +955,26 @@ var fdSlider = (function() {
 
         // Calculates value according to pixel position of slider handle
         function pixelsToValue(px) {
-        	
+        	var documentWidth = $( document ).width();
             var val = getValidValue(scale ? percentToValue(pixelsToPercent(px)) : vertical ? max - (Math.round(px / stepPx) * step) : min + (Math.round(px / stepPx) * step));
-			if(val ==0 && vertical) {
+			if((val == min || val <= (min+5)) && vertical) {
 				handle.style[vertical ? "top" : "left"] = (px+15 || 0) + "px";
 			} else if(val < 50 && vertical) {
-				handle.style[vertical ? "top" : "left"] = (px+11 || 0) + "px";
+				handle.style[vertical ? "top" : "left"] = (px+10 || 0) + "px";
 			}
-            else if(val >= 50 && vertical) {
+            else if(val >= 50 && vertical) {            	
+            	handle.style[vertical ? "top" : "left"] = (px+6 || 0) + "px";            	
+            }
+			else if((val == min || val <= (min+5)) && !vertical) {
+				handle.style[vertical ? "top" : "left"] = (px+4 || 0) + "px";
+			}            
+            else if(documentWidth < 2560 && !vertical) {
             	handle.style[vertical ? "top" : "left"] = (px+7 || 0) + "px";
             }
-            else if(val >= 50 && !vertical) {
-            	handle.style[vertical ? "top" : "left"] = (px-2 || 0) + "px";
-            }
-            else if(val < 50 && !vertical) {
+            else{
             	handle.style[vertical ? "top" : "left"] = (px || 0) + "px";
             }
+            
             redrawRange();
             $(".fd-slider-handle").mousedown();
             setInputValue((tagName == "select" || step == 1) ? Math.round(val) : val);
@@ -987,7 +994,14 @@ var fdSlider = (function() {
             } else {
                 value = checkValue(val);
             }
-            handle.style[vertical ? "top" : "left"] = (scale ? percentToPixels(valueToPercent(value)) : vertical ? Math.round(((max - value) / step) * stepPx)+7 : Math.round(((value - min) / step) * stepPx)) + "px";
+            var documentWidth = $( document ).width();
+            if(documentWidth < 2560) {
+            	handle.style[vertical ? "top" : "left"] = (scale ? percentToPixels(valueToPercent(value)) : vertical ? Math.round(((max - value) / step) * stepPx)+1 : Math.round(((value - min) / step) * stepPx))+6 + "px";
+            }
+            else {
+            	handle.style[vertical ? "top" : "left"] = (scale ? percentToPixels(valueToPercent(value)) : vertical ? Math.round(((max - value) / step) * stepPx)+16 : Math.round(((value - min) / step) * stepPx)) + "px";
+            }
+            
             redrawRange();
             if(typeof updateInputValue !== false) {
                 setInputValue(clearVal ? "" : value);
@@ -1172,6 +1186,7 @@ var fdSlider = (function() {
         }
         
         function drawVerticalGradations(sliderHeight){
+        	$('#'+gradationDiv).html('');
         	var sliderHeight = ($('#fd-slider-'+inp.id).height());
         	var maxRange = rMax;
         	var minRange = rMin;
@@ -1205,6 +1220,7 @@ var fdSlider = (function() {
         		var decimalPlaces = getNumberOfDecimalPlaces(maxRange);
         		if(fineGradation) {
         			if(longRange === i+1) {
+        				td.style.top = top-1 + "px";
 	        			td.className = 'tableData';        			
 	        			td.innerHTML = '<img src="img/scale-long.png" style="width:15px"></img><div class="tableDataDigits tableData">'+initialStep.toFixed(decimalPlaces)+'</div>';
 	        			longRange = longRange + fineGradationSteps;
@@ -1226,7 +1242,7 @@ var fdSlider = (function() {
         	}
         	var tr = doc.createElement("tr");
         		var td = doc.createElement("td");
-        		td.style.top = sliderHeight + "px";
+        		td.style.top = sliderHeight-1 + "px";
         		td.className = "tableData";
         		tbody.appendChild(tr);
         		tr.appendChild(td);
@@ -1238,7 +1254,10 @@ var fdSlider = (function() {
         }
         
         function drawHorizontalGradations(sliderWidth){
-        	var sliderWidth = ($('.fd-slider-wrapper').width())-12;
+        	$('#'+gradationDiv).html('');
+        	var documentWidth = $( document ).width();
+        	var sliderWidth = ($('.fd-slider-bar').width());
+        	i
         	var maxRange = rMax;
         	var minRange = rMin;
         	var steps = step;
@@ -1299,7 +1318,7 @@ var fdSlider = (function() {
         		initialStepWithoutGradation = initialStepWithoutGradation + step;
         		initialStep = i;  
         		 
-        		left = left+(sliderWidth/((maxRange / steps)));      		
+        		left = left+(sliderWidth/((maxRange / steps))); 
         	}
         	
         	var td = doc.createElement("td");
@@ -1311,7 +1330,7 @@ var fdSlider = (function() {
         		td.innerHTML = '<img src="img/scale-long.png" class="horozontal-scale"></img><div class="tableDataDigits tableData">'+maxRange+'</div>';
         		        		
         	table.appendChild(tbody);
-        	$('#'+gradationDiv).append(table);
+        	$('#'+gradationDiv).append(table);        	
         }
 
         function findLabel() {
@@ -1503,6 +1522,7 @@ var fdSlider = (function() {
 
         return {
             onResize:       function(e) { if(outerWrapper.offsetHeight != sliderH || outerWrapper.offsetWidth != sliderW) { redraw(); } },
+            drawGradations: function(e) {  drawGradations(); },
             destroy:        function() { destroySlider(); },
             reset:          function() { valueToPixels(tagName == "input" ? parseFloat(inp.value) : inp.selectedIndex); },
             stepUp:         function(n) { increment(Math.abs(n)||1); },

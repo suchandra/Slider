@@ -184,7 +184,7 @@
 
 .fd-slider {
 
-	width: 101%;
+	width: 96%;
 	height: 20px;
 	margin: 0 0 10px 0;
 }
@@ -237,7 +237,7 @@
 .fd-slider-wrapper {
 
 	position: absolute;
-	width: 95%;
+	width: 99%;
 	height: 100%;
 	padding: 0;
 	margin: 0;
@@ -343,7 +343,7 @@
  */
 
 .fd-slider-bar {
-	width:101%;
+	width:100%;
 	position: absolute;
 	display: block;
 	z-index: 2;
